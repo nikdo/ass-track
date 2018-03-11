@@ -1,4 +1,5 @@
 bs4
 datetime
 pymongo
+python-dotenv
 requests
