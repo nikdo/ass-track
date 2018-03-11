@@ -16,9 +16,10 @@ def scrapMember (url):
     member = {
         "id": re.search("id=(.*)", url)[1],
         "name": replaceNbsp(memberSoup.h1.string),
-        "address": replaceNbsp(memberSoup.address.get_text()),
         "assistants": [],
     }
+    if memberSoup.address is not None:
+        member["address"] = replaceNbsp(memberSoup.address.get_text())
     for assistant in memberSoup.select("ul.assistants li strong"):
         member["assistants"].append(replaceNbsp(assistant.string))
     logging.info("Scrapped member " + member["name"] + " from " + url)
