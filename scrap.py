@@ -4,6 +4,7 @@ import pprint
 import re
 import requests
 from bs4 import BeautifulSoup
+from pymongo import MongoClient
 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -38,4 +39,11 @@ def scrapSnapshot ():
     logging.info("Scrapped " + str(len(snapshot["members"])) + " members.")
     return snapshot
 
-pprint.pprint(scrapSnapshot())
+def saveSnapshot(snapshot):
+    client = MongoClient("mongodb://localhost")
+    db=client.ass_track
+    db.snapshots.insert_one(snapshot)
+    logging.info("Snapshot persisted in database.")
+
+snapshot = scrapSnapshot()
+saveSnapshot(snapshot)
