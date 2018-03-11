@@ -1,6 +1,7 @@
 import requests
 import datetime
 import pprint
+import re
 from bs4 import BeautifulSoup
 
 DOMAIN = "http://www.psp.cz/sqw/"
@@ -15,10 +16,10 @@ for memberLink in listSoup.select(".person-list .name a"):
     memberPage = requests.get(DOMAIN + memberLink["href"])
     memberSoup = BeautifulSoup(memberPage.content, "html.parser", from_encoding="windows-1250")
     member = {
+        "id": re.search("id=(.*)", memberLink["href"])[1],
         "name": replaceNbsp(memberSoup.h1.string),
         "address": replaceNbsp(memberSoup.address.get_text()),
         "assistants": [],
-        "url": memberLink["href"],
         "timestamp": timestamp
     }
     for assistant in memberSoup.select("ul.assistants li strong"):
