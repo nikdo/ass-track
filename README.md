@@ -10,6 +10,13 @@ Install dependencies:
 pip3 install --user -r requirements.txt
 ```
 
+Create `.env` file with environment settings:
+
+```
+DB_CONNECTION_STRING=mongodb://localhost
+PYTHON_ENV=dev
+```
+
 Run web scraper to obtain latest data:
 
 ```
