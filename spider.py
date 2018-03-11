@@ -4,6 +4,8 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
+import config
+
 def replace_nbsp (string):
     return string.replace(u"\xa0", " ")
 
@@ -30,7 +32,9 @@ def scrap_snapshot ():
         "timestamp": datetime.datetime.now(),
         "members": [],
     }
-    for member_link in list_soup.select(".person-list .name a"):
-        snapshot["members"].append(scrap_member(DOMAIN + member_link["href"]))
+    links = list_soup.select(".person-list .name a")
+    links = links if config.IS_PRODUCTION else links[0:3]
+    for link in links:
+        snapshot["members"].append(scrap_member(DOMAIN + link["href"]))
     logging.info("Scrapped " + str(len(snapshot["members"])) + " members.")
     return snapshot
