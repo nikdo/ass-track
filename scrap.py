@@ -30,7 +30,7 @@ def scrapSnapshot ():
     listPage = requests.get(DOMAIN + "hp.sqw?k=192")
     listSoup = BeautifulSoup(listPage.content, "html.parser", from_encoding="windows-1250")
     snapshot = {
-        "timestamp": datetime.datetime.now().strftime("%d.%m.%Y"),
+        "timestamp": datetime.datetime.now(),
         "members": [],
     }
     for memberLink in listSoup.select(".person-list .name a"):
