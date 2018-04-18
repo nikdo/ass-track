@@ -13,7 +13,7 @@ pip3 install --user -r requirements.txt
 Create `.env` file with environment settings:
 
 ```
-DB_CONNECTION_STRING=mongodb://localhost
+DB_CONNECTION_STRING=mongodb://localhost/ass_track
 PYTHON_ENV=dev
 ```
 

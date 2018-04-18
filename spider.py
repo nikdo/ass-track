@@ -21,7 +21,7 @@ def scrap_member (url):
         member["address"] = replace_nbsp(member_soup.address.get_text())
     for assistant in member_soup.select("ul.assistants li strong"):
         member["assistants"].append(replace_nbsp(assistant.string))
-    logging.info("Scrapped member " + member["name"] + " from " + url)
+    logging.debug("Scrapped member " + member["name"] + " from " + url)
     return member
 
 def scrap_snapshot ():
