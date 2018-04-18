@@ -7,4 +7,9 @@ load_dotenv(find_dotenv(), verbose=True)
 IS_PRODUCTION = os.environ.get("PYTHON_ENV") == "production"
 DB_CONNECTION_STRING = os.environ.get("DB_CONNECTION_STRING")
 
-logging.getLogger().setLevel(logging.INFO if IS_PRODUCTION else logging.DEBUG)
+if IS_PRODUCTION:
+    logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s')
+    logging.getLogger().setLevel(logging.INFO)
+else:
+    logging.basicConfig(format='%(levelname)s %(message)s')
+    logging.getLogger().setLevel(logging.DEBUG)
