@@ -13,7 +13,7 @@ def scrap_member (url):
     member_page = requests.get(url)
     member_soup = BeautifulSoup(member_page.content, "html.parser", from_encoding="windows-1250")
     member = {
-        "id": re.search("id=(.*)", url)[1],
+        "id": re.search("id=(.*)", url).group(1),
         "name": replace_nbsp(member_soup.h1.string),
         "assistants": [],
     }
