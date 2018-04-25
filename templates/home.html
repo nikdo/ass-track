@@ -10,7 +10,11 @@
 
     <dl>
       {% for member in snapshot.members %}
-        <dt>{{ member.name }}</dt>
+        <dt>
+          <a href="http://www.psp.cz/sqw/detail.sqw?id={{ member.id}}">
+            {{ member.name }}
+          </a>
+        </dt>
         <dd>
           <ul>
             {% for assistant in member.assistants %}
