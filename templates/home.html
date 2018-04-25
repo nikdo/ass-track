@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Asistenti poslanců</title>
+  </head>
+  <body>
+
+    <h1>Asistenti poslanců</h1>
+
+    <dl>
+      {% for member in snapshot.members %}
+        <dt>{{ member.name }}</dt>
+        <dd>
+          <ul>
+            {% for assistant in member.assistants %}
+            <li>{{ assistant }}</li>
+            {% endfor %}
+          </ul>
+        <dd>
+      {% endfor %}
+    </dl>
+
+    <p>
+      {{ snapshot.timestamp }}
+    </p>
+  </body>
+</html>
