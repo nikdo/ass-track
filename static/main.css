@@ -1,0 +1,52 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  /* http://www.modularscale.com/?1&em&1.333 */
+  font-size: 16px;
+  line-height: 1.5rem; /* = 24px */
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 1.5rem;
+}
+
+p, dl, dt, dd, ul, li {
+  margin: 1.5rem 0 0 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 3.157rem;
+  line-height: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+main {
+  margin-top: 3rem;
+}
+
+dt {
+  margin-top: 3rem;
+  font-size: 1.333rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+dd {
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+ul, li {
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+p.timestamp {
+  margin-top: 3rem;
+}
