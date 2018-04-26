@@ -6,14 +6,21 @@ body {
   max-width: 36rem;
   margin: 0 auto;
   padding: 0 1.5rem 1.5rem;
+  /* http://www.colourlovers.com/palette/301154/Influenza */
+  color: #300030;
 }
 
 p, dl, dt, dd, ul, li {
   margin: 1.5rem 0 0 0;
 }
 
-a {
+a, a:visited {
   text-decoration: none;
+  color: #601848;
+}
+
+a:hover, a:active, a:focus {
+  color: #C04848;
 }
 
 h1 {
@@ -23,6 +30,7 @@ h1 {
   line-height: 3rem;
   margin-top: 3rem;
   margin-bottom: 0;
+  color: #C04848;
 }
 
 main {
