@@ -22,3 +22,9 @@ Run web scraper to obtain latest data:
 ```
 python3 scrap.py
 ```
+
+Run website to show latest data:
+
+```
+python3 web.py
+```

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Asistenti poslanců</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab:300,400" rel="stylesheet">
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Asistenti poslanců</h1>
+
+    <main>
+      <dl>
+        {% for member in snapshot.members %}
+          <dt>
+            <a href="http://www.psp.cz/sqw/detail.sqw?id={{ member.id}}">
+              {{ member.name }}
+            </a>
+          </dt>
+          <dd>
+            <ul>
+              {% for assistant in member.assistants %}
+              <li>{{ assistant }}</li>
+              {% endfor %}
+            </ul>
+          <dd>
+        {% endfor %}
+      </dl>
+    </main>
+
+    <p class="timestamp">
+      {{ snapshot.timestamp | datetime }}
+    </p>
+  </body>
+</html>
